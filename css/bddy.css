@@ -1,0 +1,29 @@
+#recent-posts>.recent-post-item,.layout_page>div:first-child:not(.recent-posts),.layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post {
+  background: var(--light_bg_color)
+}
+
+#aside-content .card-widget {
+  background: var(--light_bg_color)
+}
+
+#web_bg {
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+}
+#footer {
+  background: transparent !important;
+  color: #000;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
+#footer::before {
+  background: rgba(255,255,255,.15)
+}
+
+#footer #footer-wrap {
+  color: var(--font-color)
+}
+
+#footer #footer-wrap a {
+  color: var(--font-color)
+}

@@ -1,0 +1,257 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>黑苹果安装BigSur | Bddy'Blog</title><meta name="keywords" content="教程,黑苹果"><meta name="author" content="冰岛的呀"><meta name="copyright" content="冰岛的呀"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="黑苹果安装Big Sur配置CPU: 英特尔I5-10600K主板: 技嘉Z490 Gaming X AX内存: 威刚DDR4 3200 8X2硬盘: 铠侠RD 500G显卡: 迪兰RX580 2304SP版本（2048SP无法驱动）网卡: Fenvi T919 安装步骤请务必阅读opencore官方文档 https:&#x2F;&#x2F;dortania.github.io&#x2F;OpenCore-Install-Gu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="黑苹果安装BigSur">
+<meta property="og:url" content="http://example.com/2022/01/20/%E9%BB%91%E8%8B%B9%E6%9E%9C%E5%AE%89%E8%A3%85BigSur/index.html">
+<meta property="og:site_name" content="Bddy&#39;Blog">
+<meta property="og:description" content="黑苹果安装Big Sur配置CPU: 英特尔I5-10600K主板: 技嘉Z490 Gaming X AX内存: 威刚DDR4 3200 8X2硬盘: 铠侠RD 500G显卡: 迪兰RX580 2304SP版本（2048SP无法驱动）网卡: Fenvi T919 安装步骤请务必阅读opencore官方文档 https:&#x2F;&#x2F;dortania.github.io&#x2F;OpenCore-Install-Gu">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s-sh-3485-blog.oss.dogecdn.com/%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF/wallhaven-6k1lvw.webp">
+<meta property="article:published_time" content="2022-01-20T04:21:34.000Z">
+<meta property="article:modified_time" content="2022-05-02T04:38:37.843Z">
+<meta property="article:author" content="冰岛的呀">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="黑苹果">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s-sh-3485-blog.oss.dogecdn.com/%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF/wallhaven-6k1lvw.webp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/01/20/%E9%BB%91%E8%8B%B9%E6%9E%9C%E5%AE%89%E8%A3%85BigSur/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '黑苹果安装BigSur',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-05-02 12:38:37'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/bddy.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap" rel="stylesheet"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s-sh-3485-blog.oss.dogecdn.com/%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF/wallhaven-6k1lvw.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Bddy'Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">黑苹果安装BigSur</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-01-20T04:21:34.000Z" title="发表于 2022-01-20 12:21:34">2022-01-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-05-02T04:38:37.843Z" title="更新于 2022-05-02 12:38:37">2022-05-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/">教程</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%99%E7%A8%8B/%E9%BB%91%E8%8B%B9%E6%9E%9C/">黑苹果</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="黑苹果安装BigSur"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="黑苹果安装Big-Sur"><a href="#黑苹果安装Big-Sur" class="headerlink" title="黑苹果安装Big Sur"></a>黑苹果安装Big Sur</h1><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>CPU: 英特尔I5-10600K<br>主板: 技嘉Z490 Gaming X AX<br>内存: 威刚DDR4 3200 8X2<br>硬盘: 铠侠RD 500G<br>显卡: 迪兰RX580 2304SP版本（2048SP无法驱动）<br>网卡: Fenvi T919</p>
+<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><p>请务必阅读opencore官方文档 <a target="_blank" rel="noopener" href="https://dortania.github.io/OpenCore-Install-Guide/">https://dortania.github.io/OpenCore-Install-Guide/</a><br><strong>所有操作全部基于windows 10完成</strong></p>
+<ol>
+<li><p>鼠标移动到左侧USB Creation，选择Creation the usb目录下的 in windows，选择右侧的 macrecovery.py选项进入下载页面，进入下载页面选择0.7.6版本，选择OpenCore-0.7.6-RELEASE.zip进行下载。</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/1.gif"></p>
+</li>
+</ol>
+<p>2.解压缩得到所有文件，打开文件夹你会看到以下文件夹，打开Utilities文件夹，选择macrecovery并进入在文件夹中安装键盘shift键并单击鼠标右键选择在此处打开Powershell窗口选项，粘贴以下命令下载big sur恢复程序，下载完成后会得到两个新的文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python macrecovery.py -b Mac-42FD25EABCABB274 -m 00000000000000000 download</span><br></pre></td></tr></table></figure>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/2.gif"></p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/3.gif">    <img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/4.gif"></p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/5.gif"></p>
+<p>3.将准备好的U盘进行格式化。</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/6.gif"></p>
+<p>​    6.在U盘根目录创建一个名为com.apple.recovery.boot的文件夹，将上面得到的两个文件拷贝到此文件夹。</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/7.gif"></p>
+<p>​    7.回到opencore0.7.6文件夹下打开X64文件夹后将EFI文件拷贝到U盘根目录。</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/8.gif"></p>
+<p>​    8.再次回到opencore0.7.6文件夹下将Docs文件夹下的Sample.list文件拷贝到EFI文件夹中的OC目录下并改名为config.list</p>
+<p>​    9.接下来就是对EFI进行修改，进入到OC文件夹中，从ACPI文件开始，进入</p>
+<p>中关于ACPI的页面找到ACPI。是什么平台，按需选择就行。新手就不建议自己编译SSDT文件了，等你都弄明白了，再回过头来自己编译更适合你电脑的SSDT。</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/ACPI%E5%B1%95%E7%A4%BA.webp"></p>
+<p>ACPI</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/ACPI%E6%96%87%E4%BB%B6%E5%A4%B9.webp"></p>
+<p>Drives</p>
+<p>这个文件夹中本身就包含了两个必须添加的驱动，否则启动会失败剩下的删除就行了。</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/Drivers%E6%96%87%E4%BB%B6%E5%A4%B9.webp"></p>
+<p>Kexts</p>
+<p>增加你主板的一些驱动程序，如网卡，声卡。CPU温度，USB等。</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/Kexts%E6%96%87%E4%BB%B6%E5%A4%B9.webp"></p>
+<p>Tools</p>
+<p>一般只用这一个文件就行了.</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/Tools%E6%96%87%E4%BB%B6%E5%A4%B9.webp"></p>
+<p>这样基本上驱动就添加完成了，接下来是修改config.plist文件。你需要下载两个文件</p>
+<p>1.<a target="_blank" rel="noopener" href="https://github.com/corpnewt/ProperTree">ProperTree-master</a> 这是用来打开并修改config文件的工具。</p>
+<p>2.<a target="_blank" rel="noopener" href="https://github.com/corpnewt/GenSMBIOS">GenSMBIOS-master</a> 这是生成机器信息的工具。</p>
+<p>将下载好的两个文件文件解压缩，选择ProperTree批命令文件并打开。</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/%E6%89%93%E5%BC%80plist.gif"></p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/%E6%89%93%E5%BC%80plist%E6%96%87%E4%BB%B6%EF%BC%8C%E5%B9%B6clean.gif"></p>
+<p>这一步相对复杂我也不方便录制gif文件，就以截图的形式查看吧。</p>
+<p>ACPI</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/%E9%85%8D%E7%BD%AEACPI.webp"></p>
+<p>Booter</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/Booter.webp"></p>
+<p> DeviceProperties</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/DeviceProperties.webp"></p>
+<p> Kernel</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/Kernel.webp"></p>
+<p>Misc</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/Misc%201.webp"></p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/Misc%202.webp"></p>
+<p> NVRAM</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/NVRAM.webp"></p>
+<p> Platforminfo</p>
+<p>打开GenSMBIOS-master工具，选择GenSMBIOS双击并打开</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/%E6%89%93%E5%BC%80GenSMBIOS.gif"></p>
+<p>输入1然后回车。</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/%E9%80%89%E6%8B%A91%E9%80%89%E9%A1%B9.gif"></p>
+<p>输入2然后回车</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/%E9%80%89%E6%8B%A92%E9%80%89%E9%A1%B9.gif"></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">SMBIOS</th>
+<th style="text-align:left">Hardware</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">iMac20,1</td>
+<td style="text-align:left">i7-10700K及以下</td>
+</tr>
+<tr>
+<td style="text-align:left">iMac20,2</td>
+<td style="text-align:left">i9-10850K 及以上</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p> 将<code>Type</code>对应的文本复制到SystemProductName.</p>
+<p> 将<code>Serial</code> 对应的文本复制到 SystemSerialNumber.</p>
+<p>将 <code>Board Serial</code>对应的文本复制到 MLB.</p>
+<p>将 <code>SmUUID</code>对应的文本复制到 SystemUUID.</p>
+<p>将APPLE ROM对应的文本复制到ROM</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/Platforminfo.webp"></p>
+<p>将config调整完并保存也就大功告成了。接下开就是修改BIOS环节，由于接下来步骤无法录制，也就不放出来了，照猫画虎吧。修改完BIOS保存并退出，电脑自动重启，选择U盘选项，开始跑码，直到进入系统恢复页面基本上就离开机八九不离十了。格式化硬盘，选择APSF分区模式，然后就可以在线安装系统了。等进度条走完自己会重启2-3次，直到它自己进入系统。</p>
+<h5 id="修改BIOS设置"><a href="#修改BIOS设置" class="headerlink" title="修改BIOS设置"></a>修改BIOS设置</h5><p>仅针对本次使用的主板<br>禁用</p>
+<ul>
+<li>Fast Boot</li>
+<li>Secure Boot</li>
+<li>Serial/COM Port</li>
+<li>VT-d (can be enabled if you set DisableIoMapper to YES)</li>
+<li>CSM</li>
+<li>Intel SGX</li>
+<li>Intel Platform Trust</li>
+<li>CFG Lock (MSR 0xE2 write protection)(This must be off, if you can’t find the option then enable AppleXcpmCfgLock under Kernel -&gt; Quirks. Your hack will not boot with CFG-Lock enabled)</li>
+</ul>
+<p>启用</p>
+<ul>
+<li>VT-x</li>
+<li>Above 4G decoding</li>
+<li>EHCI/XHCI Hand-off</li>
+<li>OS type: Windows 8.1/10 UEFI Mode</li>
+<li>SATA Mode: AHCI</li>
+</ul>
+<p>接下来就是将U盘的EFI文件拷贝到电脑硬盘，因为目前是用U盘引导进入系统的。</p>
+<div class="video-container"><iframe src="//player.bilibili.com/player.html?aid=593720721&bvid=BV1Yq4y1h7m5&cid=498313731&page=1&danmaku=0" frameborder="0" loading="lazy" allowfullscreen=""></iframe></div>
+
+<p>拷贝完成将U盘拔下重启电脑看看不用U盘是否能够进入系统，成功进入系统意味着黑苹果已经安装完成了。对于定制声卡，USB就不在本次范畴也就不进行演示了。</p>
+<p><img src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%AE%89%E8%A3%85Big%20Sur/%E5%B1%95%E7%A4%BA.webp"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">冰岛的呀</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/01/20/%E9%BB%91%E8%8B%B9%E6%9E%9C%E5%AE%89%E8%A3%85BigSur/">http://example.com/2022/01/20/%E9%BB%91%E8%8B%B9%E6%9E%9C%E5%AE%89%E8%A3%85BigSur/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Bddy'Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%99%E7%A8%8B/">教程</a><a class="post-meta__tags" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/">黑苹果</a></div><div class="post_share"><div class="social-share" data-image="https://s-sh-3485-blog.oss.dogecdn.com/%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF/wallhaven-6k1lvw.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/01/11/%E5%85%A8%E6%96%B0%E5%AE%89%E8%A3%85windows11/"><img class="next-cover" src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF/wallhaven-6k1lvw.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">全新安装windows11</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/04/07/%E4%B8%BA2015%E6%AC%BEMBP%E6%9B%B4%E6%8D%A2%E7%A1%AC%E7%9B%98/" title="为2015款MBP更换硬盘"><img class="cover" src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF/wallhaven-6k1lvw.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-07</div><div class="title">为2015款MBP更换硬盘</div></div></a></div><div><a href="/2022/01/11/%E5%85%A8%E6%96%B0%E5%AE%89%E8%A3%85windows11/" title="全新安装windows11"><img class="cover" src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF/wallhaven-6k1lvw.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-11</div><div class="title">全新安装windows11</div></div></a></div><div><a href="/2021/03/13/%E6%90%AD%E5%BB%BAHexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/" title="搭建Hexo静态博客"><img class="cover" src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF/wallhaven-6k1lvw.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-13</div><div class="title">搭建Hexo静态博客</div></div></a></div><div><a href="/2021/10/18/%E5%85%B3%E4%BA%8E%E6%9C%80%E8%BE%A3%E9%B8%A1%E7%9A%84%E6%A0%A1%E5%9B%AD%E7%BD%91%E4%B9%8BGIWIFI/" title="关于最辣鸡的校园网之GIWIFI"><img class="cover" src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%8D%9A%E5%AE%A2%E8%83%8C%E6%99%AF/wallhaven-6k1lvw.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-18</div><div class="title">关于最辣鸡的校园网之GIWIFI</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">冰岛的呀</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">1. 网站正在重构中！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%BB%91%E8%8B%B9%E6%9E%9C%E5%AE%89%E8%A3%85Big-Sur"><span class="toc-number">1.</span> <span class="toc-text">黑苹果安装Big Sur</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-number">1.0.1.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.0.2.</span> <span class="toc-text">安装步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9BIOS%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">修改BIOS设置</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 冰岛的呀</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" rel="noopener" href="https://beian.miit.gov.cn/">豫ICP备2021003635号-1</a> <a target="_blank" rel="noopener" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41102302000362"><img class="icp-icon" src="https://s-sh-3485-blog.oss.dogecdn.com/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.webp"><span>豫公网安备 41102302000362号</span></a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
